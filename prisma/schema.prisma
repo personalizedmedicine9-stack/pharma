@@ -1,0 +1,98 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model InteractionReport {
+  id              String   @id @default(uuid())
+  drugName        String
+  herbName        String
+  interactionType String   @default("Unknown")
+  severity        String   @default("Unknown")
+  mechanism       String   @default("")
+  confidenceScore Float    @default(0)
+  evidenceLevel   String   @default("Low")
+  // Supabase: jsonb; SQLite: JSON string
+  references      String   @default("[]")
+  evidenceBreakdown String @default("{}")
+  sourcesUsed     String   @default("[]")
+  fdaData         String?
+  topCitationCount Int     @default(0)
+  createdAt       DateTime @default(now())
+}
+
+model PharmacologyReport {
+  id                     String   @id @default(uuid())
+  compoundName           String
+  herbName               String
+  // Supabase: jsonb; SQLite: JSON string
+  mechanisms             String   @default("[]")
+  activeCompounds        String   @default("[]")
+  pharmacologicalActions String   @default("[]")
+  evidenceScore          Float    @default(0)
+  evidenceLevel          String   @default("Low")
+  confidence             String   @default("Low")
+  references             String   @default("[]")
+  sourcesUsed            String   @default("[]")
+  createdAt              DateTime @default(now())
+}
+
+model SearchHistory {
+  id               String   @id @default(uuid())
+  query            String
+  engineType       String   @default("interaction")
+  resultsCount     Int      @default(0)
+  sourcesUsed      String   @default("[]")
+  topCitationCount Int      @default(0)
+  hasFdaData       Boolean  @default(false)
+  timestamp        DateTime @default(now())
+}
+
+model PdfReport {
+  id         String   @id @default(uuid())
+  reportType String   @default("interaction")
+  // Supabase: jsonb; SQLite: JSON string
+  reportData String   @default("{}")
+  pdfUrl     String   @default("")
+  createdAt  DateTime @default(now())
+}
+
+model CachedResult {
+  id               String   @id @default(uuid())
+  cacheKey         String   @unique
+  drug             String   @default("")
+  herb             String   @default("")
+  results          String   @default("[]")
+  sourcesUsed      String   @default("[]")
+  fdaData          String?
+  total            Int      @default(0)
+  topCitationCount Int      @default(0)
+  cachedAt         DateTime @default(now())
+  expiresAt        DateTime @default(now())
+}
+
+model LocalUser {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  passwordHash String
+  displayName  String   @default("")
+  createdAt    DateTime @default(now())
+}
+
+model SavedReport {
+  id             String   @id @default(uuid())
+  userId         String
+  reportId       String
+  reportType     String   @default("interaction")
+  drugName       String   @default("")
+  herbName       String   @default("")
+  evidenceScore  Float    @default(0)
+  evidenceLevel  String   @default("Low")
+  confidence     String   @default("Low")
+  reportData     String   @default("{}")
+  createdAt      DateTime @default(now())
+}

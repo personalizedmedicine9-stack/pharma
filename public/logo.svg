@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <!-- Molecular Shield Logo for PharmaInsight -->
+  <!-- Hexagonal shield with molecular structure inside -->
+  
+  <!-- Shield shape -->
+  <path d="M60 8 L104 28 L104 68 Q104 92 60 112 Q16 92 16 68 L16 28 Z" 
+        fill="#0f172a" stroke="#1e293b" stroke-width="2"/>
+  
+  <!-- Inner shield highlight -->
+  <path d="M60 16 L96 33 L96 66 Q96 86 60 104 Q24 86 24 66 L24 33 Z" 
+        fill="none" stroke="#334155" stroke-width="0.5" opacity="0.6"/>
+  
+  <!-- Molecular nodes - 3 interconnected circles representing evidence connections -->
+  <!-- Center node (larger) -->
+  <circle cx="60" cy="50" r="10" fill="#059669" stroke="white" stroke-width="1.5"/>
+  <circle cx="60" cy="50" r="4" fill="white" opacity="0.9"/>
+  
+  <!-- Left node -->
+  <circle cx="38" cy="68" r="8" fill="#dc2626" stroke="white" stroke-width="1.5"/>
+  <circle cx="38" cy="68" r="3" fill="white" opacity="0.9"/>
+  
+  <!-- Right node -->
+  <circle cx="82" cy="68" r="8" fill="#2563eb" stroke="white" stroke-width="1.5"/>
+  <circle cx="82" cy="68" r="3" fill="white" opacity="0.9"/>
+  
+  <!-- Connection lines between nodes -->
+  <line x1="52" y1="56" x2="44" y2="64" stroke="white" stroke-width="1.5" opacity="0.8"/>
+  <line x1="68" y1="56" x2="76" y2="64" stroke="white" stroke-width="1.5" opacity="0.8"/>
+  <line x1="46" y1="68" x2="74" y2="68" stroke="white" stroke-width="1.5" opacity="0.6"/>
+  
+  <!-- Small decorative atoms -->
+  <circle cx="48" cy="40" r="3" fill="white" opacity="0.5"/>
+  <circle cx="72" cy="40" r="3" fill="white" opacity="0.5"/>
+  <line x1="51" y1="42" x2="56" y2="46" stroke="white" stroke-width="0.8" opacity="0.4"/>
+  <line x1="69" y1="42" x2="64" y2="46" stroke="white" stroke-width="0.8" opacity="0.4"/>
+  
+  <!-- Evidence bar at bottom of shield -->
+  <rect x="36" y="82" width="48" height="3" rx="1.5" fill="white" opacity="0.15"/>
+  <rect x="36" y="82" width="34" height="3" rx="1.5" fill="#059669" opacity="0.7"/>
+  <rect x="36" y="88" width="48" height="2" rx="1" fill="white" opacity="0.1"/>
+  <rect x="36" y="88" width="22" height="2" rx="1" fill="#2563eb" opacity="0.5"/>
+</svg>
